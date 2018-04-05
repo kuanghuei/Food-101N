@@ -1,0 +1,80 @@
+:root {
+  --jumbotron-padding-y: 3rem;
+}
+
+.bibtex pre
+{
+    margin-bottom: 0;
+    font-family: Consolas, Monaco, monospace;
+    white-space: pre-wrap; /* CSS 3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* IE 5.5+ */
+    width: 100%;
+    color: #444;
+    padding: 10px;
+    background: #eee;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+.jumbotron {
+  padding-top: calc(var(--jumbotron-padding-y) * 2);
+  padding-bottom: calc(var(--jumbotron-padding-y) * 2);
+  background: url('banner.jpg');
+  margin-bottom: 0;
+  width: 800px;
+  height: 200px;
+  align-items: center;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+
+.bold{
+  font-weight: bold
+}
+
+.hline { width:100%; height:1px; background: #000 }
+
+.cust-font{
+  font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:5px !important; padding-bottom:0 !important;
+    height: 60px;
+}
+.navbar {min-height:60px !important;}
+
+.container {
+  margin: 0 auto;
+  max-width: 830px;
+}
+
+#primarycontent h4{
+  border-bottom: 1px solid darkgray;
+  text-align: left;
+    padding: 0 0 0.2em 0.5em;
+    margin: 2em 0 0 0;
+}
+
+.card-cite {
+    height: 160px;
+}
+
+.headline h2,
+.headline h3,
+.headline h4,
+.headline h5 {
+  border-bottom:2px solid #e74c3c;
+}

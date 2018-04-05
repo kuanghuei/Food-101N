@@ -5,23 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <link rel="icon" href="#">
-
     <title>Food-101N: A Dataset for Learning to Address Label</title>
-
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
   </head>
 
   <body class="cust-font">
-    coming soon
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <main role="main" class="container">
+      <div class="navbar navbar-dark bg-white">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center text-dark">
+            <h1><b>Food-101<font color="red">N</font> Dataset</b></h1>
+          </a>
+          <img src="microsoft-gray.png" height="24">
+        </div>
+        <div class="container">
+          <h6>
+            <a href="https://kuanghuei.github.io/" class="align-items-center text-dark">Kuang-Huei Lee</a> &nbsp;
+            <a href="https://scholar.google.com/citations?user=W5WbqgoAAAAJ" class="align-items-center text-dark">Xiaodong He</a> &nbsp;
+            <a href="https://www.microsoft.com/en-us/research/people/leizhang/" class="align-items-center text-dark">Lei Zhang</a> &nbsp;
+            <a href="https://scholar.google.com/citations?user=cvgKxDQAAAAJ" class="align-items-center text-dark">Linjun Yang</a> &nbsp;
+          </h6>
+        </div>
+      </div>
+      
+      <div class="jumbotron"></div>
+      <font size="1">Images of "waffles" crawled from the web. Such crawling usually results in label noise. Images incorrectly labeled (label noise) are outlined in red.</font>
+
+      <div class="py-5 bg-white">
+        <div class="container">
+          <h5><b>A Dataset for Learning to Address Label <font color="red">N</font>oise</b></h5>
+          <div class="hline"></div><br>
+          <p>The Food-101N dataset is introduced in a CVPR 2018 paper <a href="https://arxiv.org/abs/1711.07131">CleanNet: Transfer Learning for Scalable Image Classifier Training with Label Noise</a> from Microsoft AI & Research. The dataset is designed for learning to address label noise with <b>minimum human supervision</b>.</p>
+          <p>Food-101N is an image dataset containing about 310,009 images of food recipes classified in 101 classes (categories). Food-101N and the <a href="https://www.vision.ee.ethz.ch/datasets_extra/food-101/">Food-101</a> dataset share the same 101 classes, whereas Food-101N has much more images and is more noisy. </p>
+
+          <p> In this dataset, we define two types of labels for images:</p>
+          <p><b><u>Class labels</u></b>: a class label describes the class of an image. Class labels are noisy, which means they could be incorrect. Each image in this dataset has a class label. The estimated noise rate is ~20%.</p>
+          <p><b><u>Verification labels</u></b>: a verification label marks whether the class label is correct for an image. We manually assign verification labels to 52,868 images (~523 images per class) for training and 4,741 images (~47 images per class) for validation.</p>
+
+          <p>In our paper <a href="https://arxiv.org/abs/1711.07131">CleanNet: Transfer Learning for Scalable Image Classifier Training with Label Noise</a>, we explored using transfer learning to address label noise. Specifically for some experiments, we only keep verification labels for part of the classes so that we only learn from human supervision for some of the classes and transfer the knowledge to address label noise in other classes. For future research to follow the experiments in the paper, we also include the held-out class lists in this dataset.</p>
+          
+          <h5><b>Tasks and Evaluation</b></h5>
+          <div class="hline"></div><br>
+          <p>Food-101N is designed for the following two tasks:</p>
+          <p><b><u>Learning image classification with label noise</u></b><br> Food-101N directly adopts the testing set of <a href="https://www.vision.ee.ethz.ch/datasets_extra/food-101/">Food-101</a> to evaluate image classification. </p>
+          Here we provide an image classification baseline using ResNet-50 without any human verification: <br><br>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Dataset</th>
+                <th scope="col">Top-1 Accuracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Food-101N</th>
+                <td>81.44%</td>
+              </tr>
+              <tr>
+                <th scope="row">Food-101</th>
+                <td>81.67%</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>The above results also show that Food-101N perform comparably to Food-101. Please refer to the paper for more results.</p>
+
+          <p><b><u>Label noise detection</u></b><br> Food-101N provides 4,741 images with verification labels for validation.</p>
+
+          <h5><b>Citations</b></h5> 
+          <div class="hline"></div><br>
+          <p>If you use the dataset in your paper, then please cite our paper
+ <a href="https://arxiv.org/abs/1711.07131">"CleanNet: Transfer Learning for Scalable Image Classifier Training with Label Noise"</a>.</p>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section bibtex">
+                <pre><font size="1">@inproceedings{lee2017cleannet,
+  title={CleanNet: Transfer Learning for Scalable Image Classifier Training with Label Noise},
+  author={Lee, Kuang-Huei and He, Xiaodong and Zhang, Lei and Yang, Linjun},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition ({CVPR})},
+  year={2018}
+}</pre></font><br>
+              </div>
+            </div>
+          </div>
+
+          <h5><b>Download the Dataset</b></h5> 
+          <div class="hline"></div><br>
+          <p><b><font color="red">Please review the following terms before downloading</font></b></p>
+ 
+          <p>The Food-101N dataset is intended for non-commercial research purposes only to promote advancement in the field of artificial intelligence and related areas, and is made available free of charge without extending any license or other intellectual property rights.  The dataset is provided “as is” without warranty, and usage of the data has risks since we may not own the underlying rights in the images.  We will not be liable for any damages related to use of the dataset.  Feedback is voluntarily given and can be used as we see fit. Upon violation of any of these terms, your rights to use the dataset will end automatically. </p>
+ 
+          <p>Please contact us at <a href="mailto:Food-101N@microsoft.com">Food-101N@microsoft.com</a> if you own any of the documents made available but do not want them in this dataset.  We will remove the data accordingly.   If you have questions about use of the dataset or any research outputs in your product or services, we encourage you to undertake your own independent legal review.  For other questions, please feel free to contact us.</p>
+
+          <a class="btn btn-sm btn-outline-secondary" href="https://food101n.blob.core.windows.net/food101n/Food-101N_release.zip">I agree to these terms. Proceed to download.</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-muted bg-white">
+      <div class="container">
+        <p class="float-right">
+          <a href="mailto:Food-101N@microsoft.com">Contact Us</a>
+        </p>
+        <p>2018 © All Rights Reserved.</p>
+      </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="popper.min.js"></script>
